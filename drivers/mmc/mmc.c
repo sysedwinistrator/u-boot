@@ -654,7 +654,7 @@ static int sd_send_op_cond(struct mmc *mmc, bool uhs_en)
 		if (timeout-- <= 0)
 			return -EOPNOTSUPP;
 
-		udelay(1000);
+		udelay(10000);
 	}
 
 	if (mmc->version != SD_VERSION_2)
@@ -2788,7 +2788,7 @@ static int mmc_power_cycle(struct mmc *mmc)
 	 * SD spec recommends at least 1ms of delay. Let's wait for 2ms
 	 * to be on the safer side.
 	 */
-	udelay(2000);
+	udelay(20000);
 	return mmc_power_on(mmc);
 }
 
